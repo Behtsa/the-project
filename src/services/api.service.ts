@@ -9,8 +9,9 @@ export default class ApiService {
         this.httpService = new HttpService();
     }
 
-    public getAllCharacters(): Promise<IHttpResponse> {
-        const path = API_ENDPOINTS.CHARACTER;
+    public getCharacters(selectedPage?: string): Promise<IHttpResponse> {
+        const path = selectedPage ? API_ENDPOINTS.CHARACTER + '/?page=' + selectedPage
+            : API_ENDPOINTS.CHARACTER;
         return this.httpService.get(path);
     }
 }
