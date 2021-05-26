@@ -1,8 +1,11 @@
 import CharacterContainer from './containers/characters';
+import { SelectedCharacterContextProvider } from './context-provider/selected-character-context';
 
 const App = () => (
   <div className="App">
-    <CharacterContainer />
+    <SelectedCharacterContextProvider>
+      <CharacterContainer />
+    </SelectedCharacterContextProvider>
   </div>
 )
 
