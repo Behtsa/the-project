@@ -6,9 +6,19 @@
     &__item {
         margin: 12px;
         width: 100px;
+        background-color: #FFC938;
+        div {
+            padding: 5px;
+        }
         img {
             width: 100%;
         }
+    }
+}
+
+.characters__container {
+    &__item:hover {
+        background-color: #FC9338;
     }
 }
 

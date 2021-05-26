@@ -11,6 +11,8 @@ const Sidebar = (): React.ReactElement => {
             <div className="sidebar__container--fixed">
                 <div>
                     <img src={selectedCharacter.image} alt={selectedCharacter.name}/>
+                </div>
+                <div>
                     <p>Name: {`${selectedCharacter.name}`}</p>
                     <p>Status: {`${selectedCharacter.status}`}</p>
                 </div>

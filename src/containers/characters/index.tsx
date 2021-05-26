@@ -7,11 +7,13 @@ import Sidebar from '../../components/sidebar/index';
 import Pagination from '../../components/pagination';
 // Services
 import ApiService from '../../services/api.service';
+import SessionStorageService from '../../services/session-storage.service';
 import './index.scss';
 
 const CharacterContainer = () => {
 
     const apiService = new ApiService();
+    const sessionStorageService = new SessionStorageService();
 
     const [state, setState] = useState({
         isLoading: false,
@@ -31,7 +33,7 @@ const CharacterContainer = () => {
     const getCharacters = async (selectedPage?: string) => {
         try {
             setState({...state, isLoading: true});
-            const characters =  await apiService.getCharacters(selectedPage);
+            const characters = await apiService.getCharacters(selectedPage);
             // const characters = await Promise.race([fn(100000, "p1"), fn(500000, "p2")])
             setState({
                 ...state,
@@ -44,9 +46,24 @@ const CharacterContainer = () => {
     }
 
     useEffect(() => {
-        // TO DO: Add cache or session storage
-        getCharacters();
+        if (state.results && state.results.length > 0) {
+            const charactersFromStorage = sessionStorageService.getSessionItem();
+            setState({
+                ...state, 
+                results: charactersFromStorage.results, 
+                info: charactersFromStorage.info
+            })
+        } else {
+            getCharacters();
+        }
     }, []);
+
+    useEffect(() => {
+        sessionStorageService.saveInfoInStorage({
+            info: state.info,
+            results: state.results
+        })
+    }, [state.results])
 
     return (
         

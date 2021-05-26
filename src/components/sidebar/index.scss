@@ -1,7 +1,9 @@
 .sidebar__container {
     width: 100%;
+    // background-color: #62A4AB;
     &--fixed {
         position: fixed;
+        word-break: break-all;
     }
 }
 
