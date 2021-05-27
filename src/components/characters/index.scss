@@ -3,30 +3,44 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    flex-grow: 5;
+    overflow: auto;
     &__item {
+        border-radius: 20px;
         margin: 12px;
         width: 100px;
-        background-color: #FFC938;
-        div {
-            padding: 5px;
-        }
         img {
             width: 100%;
         }
     }
+    &__title {
+        color: #A5D4E6;
+        margin: 12px;
+    }
 }
 
 .characters__container {
-    &__item:hover {
-        background-color: #FC9338;
+    &__item {
+        overflow: hidden;
+        img {
+            transition: transform 1s, filter 2s ease-in-out;
+            transform: blur(1px);
+            transform: scale(1.2);
+        }
     }
+    &__item:hover img {
+        filter: blur(0);
+        transform: scale(1);
+    }  
 }
 
 @media only screen and (min-device-width: 768px) {
     .characters__container {
+        margin-left: 100px;
         width: 70%;
         &__item {
-            width: 300px;
+            height: 250px;
+            width: 250px;
         }
     }
 }

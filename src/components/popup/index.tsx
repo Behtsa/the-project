@@ -10,7 +10,9 @@ const PopUp = ({popUpTitle, imgSrc, closePopUp}): React.ReactElement => {
                 <div className="popup__container__img__wrapper">
                     <img src={imgSrc} />
                 </div>
-                <button onClick={ () => closePopUp()}>X Close</button>
+                <button className="popup__container__button" 
+                    onClick={ () => closePopUp() }> Close
+                </button>
             </div>
         </div>
     );

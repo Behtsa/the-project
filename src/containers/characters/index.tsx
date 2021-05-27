@@ -66,17 +66,18 @@ const CharacterContainer = () => {
     }, [state.results])
 
     return (
-        
-        <div className="character__container">
-            {state.isLoading ?  <Loader /> : null}
-            {state.isError ?  
-                <PopUp popUpTitle="Oops!" imgSrc="errorRickMorty.jpeg" closePopUp={closePopUp}/> 
-            : null}
-            <Sidebar />
-            {state.results ? 
-                <Characters characters={state.results}/>
-                : null
-            }
+        <div>
+            <div className="character__container">
+                {state.isLoading ?  <Loader /> : null}
+                {state.isError ?  
+                    <PopUp popUpTitle="Oops!" imgSrc="errorRickMorty.jpeg" closePopUp={closePopUp}/> 
+                : null}
+                <Sidebar />
+                {state.results ? 
+                    <Characters characters={state.results}/>
+                    : null
+                }
+            </div>
             <Pagination info={state.info} getCharactersPerPage={getCharacters}/>
         </div>
     );

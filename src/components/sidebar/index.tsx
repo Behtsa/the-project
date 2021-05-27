@@ -7,25 +7,34 @@ const Sidebar = (): React.ReactElement => {
     const [selectedCharacter, setNewCharacter] = useContext(SelectedCharacterContext);
 
     return (
-        <div className="sidebar__container">
-            <div className="sidebar__container--fixed">
-                <div>
-                    <img src={selectedCharacter.image} alt={selectedCharacter.name}/>
-                </div>
-                <div>
-                    <p>Name: {`${selectedCharacter.name}`}</p>
-                    <p>Status: {`${selectedCharacter.status}`}</p>
-                </div>
-                <div>
-                    <p>Species: {`${selectedCharacter.species}`}</p>
-                    <p>Type: {`${selectedCharacter.type}`}</p>
-                    <p>Gender: {`${selectedCharacter.gender}`}</p>
-                </div>
-                <div>
-                    <div></div>
-                    <p>First seen in: {`${selectedCharacter.origin.name}`}</p>
-                    <p>Last known character location: {`${selectedCharacter.location.name}`}</p>
-                </div>
+        <div className="sidebar">
+            <div className="sidebar__image__wrapper">
+                <img className="sidebar__image" src={selectedCharacter.image} alt={selectedCharacter.name}/>
+            </div>
+            <div className="sidebar__title">
+                <p>{`${selectedCharacter.name}`}</p>
+            </div>
+            <div className="sidebar__content">
+                <p>
+                    <span className="sidebar__label">Status </span> 
+                    <span className={`sidebar__status sidebar__status--${selectedCharacter.status}`}></span> 
+                    {`${selectedCharacter.status}`}
+                </p>
+                <p>
+                    <span className="sidebar__label">Species </span> 
+                    {`${selectedCharacter.species}`}
+                </p>
+                <p>
+                    <span className="sidebar__label">Type </span> 
+                    {`${selectedCharacter.type}`}
+                </p>
+                <p>
+                    <span className="sidebar__label">Gender </span> 
+                    {`${selectedCharacter.gender}`}
+                </p>
+                <p>
+                    <span className="sidebar__label">Episodes </span> 
+                    {`${selectedCharacter.episode.length}`}</p>
             </div>
         </div>
     );
