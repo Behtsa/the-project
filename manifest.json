@@ -5,7 +5,7 @@
   "background_color": "#090909",
   "display": "standalone",
   "scope": "/",
-  "start_url": "/",
+  "start_url": "https://behtsa.github.io/",
   "icons": [
       {
         "src": "maskable.png",
