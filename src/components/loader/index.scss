@@ -1,19 +1,13 @@
 .loader__container {
-    position: fixed;
-    background: #00000050;
-    width: 100%;
-    height: 100vh;
-    top: 0;
-    left: 0;
     &__img{
-        margin-top: calc(100vh - 85vh - 20px);
         img {
             position: fixed;
-            right: calc(50%);
-            top: calc(40vh);
-            width: 60px;
-            height: 60px;
+            right: calc(34%);
+            top: calc(14vh);
+            width: 200px;
+            height: 200px;
             border-radius: 50%;
+            z-index: 99999999;
         }
     }
 }

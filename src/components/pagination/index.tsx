@@ -12,13 +12,14 @@ const Pagination = ({info, getCharactersPerPage}): React.ReactElement => {
     return (
         <div className="pagination__container">
             <ReactPaginate 
-            pageCount={34}
+            pageCount={info.pages}
             pageRangeDisplayed={10}
             marginPagesDisplayed={5}
-            previousLabel={"prev"}
-            nextLabel={"next"}
+            previousLabel={"ant"}
+            nextLabel={"sig"}
             breakLabel={"..."}
             onPageChange={handlePageClick}
+            containerClassName={"pagination"}
             />
         </div>
     );

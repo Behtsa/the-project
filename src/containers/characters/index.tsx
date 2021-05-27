@@ -22,11 +22,6 @@ const CharacterContainer = () => {
         results: []
     });
 
-    // const fn = async (time, label) => {
-    //      await new Promise((res) => setTimeout(res, time));
-    //      return label;
-    //  }
-
     const closePopUp = () => setState({...state, isError: !state.isError})
     
 
@@ -34,11 +29,11 @@ const CharacterContainer = () => {
         try {
             setState({...state, isLoading: true});
             const characters = await apiService.getCharacters(selectedPage);
-            // const characters = await Promise.race([fn(100000, "p1"), fn(500000, "p2")])
             setState({
                 ...state,
                 isLoading: false,
-                results: characters.data.results
+                results: characters.data.results,
+                info: characters.data.info
             });
         } catch(error) {
             setState({...state, isLoading: false, isError: true});
@@ -63,7 +58,7 @@ const CharacterContainer = () => {
             info: state.info,
             results: state.results
         })
-    }, [state.results])
+    }, [state.results, state.info])
 
     return (
         <div>
